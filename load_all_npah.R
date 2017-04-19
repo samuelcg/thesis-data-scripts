@@ -9,3 +9,8 @@ time_stamps <- c("safe-2017-02-27-13-00-39",
                  "safe-2017-02-27-14-15-26")
 
 list_of_npah_dfs <- sapply(time_stamps, load_one_npah)
+
+##################################
+## Clean up.
+##################################
+time_stamps <- NULL
