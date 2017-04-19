@@ -8,9 +8,9 @@ load_one_npah <- function(arg_time_stamp) {
   npah_df <- read_delim(str_path_to_file,
                         "\t", escape_double = FALSE, trim_ws = TRUE,skip = 4)
 
-  ##
-  # Rename columns
-  ##
+  ##################################
+  ## Rename columns
+  ##################################
 
   renaming_vector <- c("Node label"="node_label",
                        "Node label ORF"="orf_label",
@@ -19,15 +19,15 @@ load_one_npah <- function(arg_time_stamp) {
                        "Total number of enriched domains"="num_enriched_domains")
   npah_df <- rename(npah_df, renaming_vector)
 
-  ##
-  # Collect the string representation of "Number of enriched attributes per domain"
-  ##
+  ##################################
+  ## Collect the string representation of "Number of enriched attributes per domain"
+  ##################################
 
   vect_of_strings <- npah_df$`Number of enriched attributes per domain`
 
-  ##
-  # Remove the "Number of enriched attributes per domain" column
-  ##
+  ##################################
+  ## Remove the "Number of enriched attributes per domain" column
+  ##################################
 
   selection_vector <- c("node_label",
                         "orf_label",
@@ -36,43 +36,43 @@ load_one_npah <- function(arg_time_stamp) {
                         "num_enriched_domains")
   npah_df <- npah_df[selection_vector]
 
-  ##
-  # Split the strings by comma
-  ##
+  ##################################
+  ## Split the strings by comma
+  ##################################
 
   list_of_string_vect <- strsplit(vect_of_strings, ",")
 
-  ##
-  # Convert the string to int
-  ##
+  ##################################
+  ## Convert the string to int
+  ##################################
 
   matrix_num_enriched_attributes_per_domain <- t(sapply(list_of_string_vect, strtoi))
 
-  ##
-  # Add column names to this matrix
-  ##
+  ##################################
+  ## Add column names to this matrix
+  ##################################
 
   col_names <- 2:(1 + ncol(matrix_num_enriched_attributes_per_domain))
   col_names <- sapply(col_names, paste, "_domain_num_enriched_attributes", sep="")
 
   colnames(matrix_num_enriched_attributes_per_domain) <- col_names
 
-  ##
-  # Combine the num_enriched_attributes_per_domain matrix with the data frame
-  ##
+  ##################################
+  ## Combine the num_enriched_attributes_per_domain matrix with the data frame
+  ##################################
 
   npah_df <- cbind(npah_df, matrix_num_enriched_attributes_per_domain)
 
-  ##
-  # Turn label columns into factors
-  ##
+  ##################################
+  ## Turn label columns into factors
+  ##################################
 
   npah_df$node_label <- factor(npah_df$node_label)
   npah_df$orf_label <- factor(npah_df$orf_label)
 
-  ##
-  # Clean the workspace
-  ##
+  ##################################
+  ## Clean the workspace
+  ##################################
 
   col_names <- NULL
   list_of_string_vect <- NULL
