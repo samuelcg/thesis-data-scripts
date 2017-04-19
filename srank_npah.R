@@ -1,4 +1,5 @@
 source('load_all_npah.R')
+source('compute_src.R')
 
 ##################################
 ## Compute all possible unique pairs of SAFE sessions
@@ -9,18 +10,20 @@ session_pair_matrix <- t(combn(names(list_of_npah_dfs), 2))
 ## Add a column to the matrix to hold the results of the spearman's test
 ##################################
 session_pair_matrix <- cbind(session_pair_matrix, 1:nrow(session_pair_matrix))
-colnames(session_pair_matrix) <- c("SAFE_session_a", "SAFE_session_b", "spearmans_rank_coefficient")
+colnames(session_pair_matrix) <- c("SAFE_session_a", "SAFE_session_b", "src_neighorhood_score_predom")
 
 ##################################
 ## Compute the spearmans_rank_coefficient for each pair of SAFE sessions
 ##################################
 for (x in 1:nrow(session_pair_matrix)) {
   session_a <- session_pair_matrix[x,1]
-  rank_set_a <- list_of_npah_dfs[[session_a]]$neighborhood_score_predom
-
   session_b <- session_pair_matrix[x,2]
-  rank_set_b <- list_of_npah_dfs[[session_b]]$neighborhood_score_predom
 
-  s_r_corr <- cor.test(x=rank_set_a, y=rank_set_b, method = 'spearman')
-  session_pair_matrix[x,3] <- s_r_corr$estimate
+  session_df_a <- list_of_npah_dfs[[session_a]]
+  session_df_b <- list_of_npah_dfs[[session_b]]
+
+  src_neighorhood_score_predom <- compute_src(
+    data_set_a=session_df_a$neighborhood_score_predom,
+    data_set_b=session_df_b$neighborhood_score_predom)
+  session_pair_matrix[x,"src_neighorhood_score_predom"] <- src_neighorhood_score_predom$estimate
 }
