@@ -1,4 +1,4 @@
-source('/Volumes/~samuelcg/thesis/Kamada-Kawai/load_one_npah.R')
+source('load_one_npah.R')
 time_stamps <- c("safe-2017-02-27-13-00-39",
                  "safe-2017-02-27-13-12-01",
                  "safe-2017-02-27-13-22-05",

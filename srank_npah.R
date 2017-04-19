@@ -1,4 +1,4 @@
-source('/Volumes/~samuelcg/thesis/Kamada-Kawai/load_all_npah.R')
+source('load_all_npah.R')
 session_pair_matrix <- t(combn(names(list_of_npah_dfs), 2))
 session_pair_matrix <- cbind(session_pair_matrix, 1:nrow(session_pair_matrix))
 colnames(session_pair_matrix) <- c("SAFE_session_a", "SAFE_session_b", "spearmans_rank_coefficient")
