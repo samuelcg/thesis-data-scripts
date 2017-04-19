@@ -9,8 +9,16 @@ session_pair_matrix <- t(combn(names(list_of_npah_dfs), 2))
 ##################################
 ## Add a column to the matrix to hold the results of the spearman's test
 ##################################
-session_pair_matrix <- cbind(session_pair_matrix, 1:nrow(session_pair_matrix))
-colnames(session_pair_matrix) <- c("SAFE_session_a", "SAFE_session_b", "src_neighorhood_score_predom")
+session_pair_matrix <- cbind(
+  session_pair_matrix,
+  1:nrow(session_pair_matrix),
+  1:nrow(session_pair_matrix))
+
+colnames(session_pair_matrix) <- c(
+  "SAFE_session_a",
+  "SAFE_session_b",
+  "src_neighborhood_score_predom",
+  "src_2_domain_num_enriched_attributes")
 
 ##################################
 ## Compute the spearmans_rank_coefficient for each pair of SAFE sessions
@@ -22,8 +30,13 @@ for (x in 1:nrow(session_pair_matrix)) {
   session_df_a <- list_of_npah_dfs[[session_a]]
   session_df_b <- list_of_npah_dfs[[session_b]]
 
-  src_neighorhood_score_predom <- compute_src(
+  src_neighborhood_score_predom <- compute_src(
     data_set_a=session_df_a$neighborhood_score_predom,
     data_set_b=session_df_b$neighborhood_score_predom)
-  session_pair_matrix[x,"src_neighorhood_score_predom"] <- src_neighorhood_score_predom$estimate
+  session_pair_matrix[x,"src_neighborhood_score_predom"] <- src_neighborhood_score_predom$estimate
+
+  src_2_domain_num_enriched_attributes <- compute_src(
+    data_set_a=session_df_a$'2_domain_num_enriched_attributes',
+    data_set_b=session_df_b$'2_domain_num_enriched_attributes')
+  session_pair_matrix[x,"src_2_domain_num_enriched_attributes"] <- src_2_domain_num_enriched_attributes$estimate
 }
