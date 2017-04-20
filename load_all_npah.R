@@ -13,4 +13,4 @@ list_of_npah_dfs <- sapply(time_stamps, load_one_npah)
 ##################################
 ## Clean up.
 ##################################
-time_stamps <- NULL
+rm(time_stamps)

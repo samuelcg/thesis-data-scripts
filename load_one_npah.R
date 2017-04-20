@@ -74,12 +74,12 @@ load_one_npah <- function(arg_time_stamp) {
   ## Clean the workspace
   ##################################
 
-  col_names <- NULL
-  list_of_string_vect <- NULL
-  renaming_vector <- NULL
-  selection_vector <- NULL
-  vect_of_strings <- NULL
-  matrix_num_enriched_attributes_per_domain <- NULL
+  rm(col_names,
+  list_of_string_vect,
+  renaming_vector,
+  selection_vector,
+  vect_of_strings,
+  matrix_num_enriched_attributes_per_domain)
 
   print(paste("Successful npah load for", arg_time_stamp))
   return(npah_df)

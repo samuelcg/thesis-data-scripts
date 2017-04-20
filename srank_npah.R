@@ -57,3 +57,21 @@ for (x in 1:nrow(session_pair_matrix)) {
   row_of_src <- sapply(2:20, compute_full_row_of_src)
   session_pair_matrix[x,4:22] <- row_of_src
 }
+
+##################################
+## Clean up
+##################################
+
+rm(num_src_tests_num_enriched_attributes,
+  src_matrix,
+  col_names,
+  session_a,
+  session_b,
+  src_neighborhood_score_predom,
+  attribute_str,
+  src_N_domain_num_enriched_attributes,
+  row_of_src,
+  session_df_a,
+  session_df_b,
+  x
+  )
