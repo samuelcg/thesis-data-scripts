@@ -31,8 +31,8 @@ colnames(session_pair_matrix) <- col_names
 ## Compute the spearmans_rank_coefficient across several fields for each pair of SAFE sessions
 ##################################
 for (x in 1:nrow(session_pair_matrix)) {
-  session_a <- session_pair_matrix[x,1]
-  session_b <- session_pair_matrix[x,2]
+  session_a <- session_pair_matrix[x,"SAFE_session_a"]
+  session_b <- session_pair_matrix[x,"SAFE_session_b"]
 
   session_df_a <- list_of_npah_dfs[[session_a]]
   session_df_b <- list_of_npah_dfs[[session_b]]
@@ -45,9 +45,15 @@ for (x in 1:nrow(session_pair_matrix)) {
     data_set_b=session_df_b$neighborhood_score_predom)
   session_pair_matrix[x,"src_neighborhood_score_predom"] <- src_neighborhood_score_predom$estimate
 
+  compute_full_row_of_src <- function(y) {
+    attribute_str <- paste(toString(y),"_domain_num_enriched_attributes", sep="")
 
-  src_2_domain_num_enriched_attributes <- compute_src(
-    data_set_a=session_df_a$'2_domain_num_enriched_attributes',
-    data_set_b=session_df_b$'2_domain_num_enriched_attributes')
-  session_pair_matrix[x,"2_src_domain_num_enriched_attributes"] <- src_2_domain_num_enriched_attributes$estimate
+    src_N_domain_num_enriched_attributes <- compute_src(
+      data_set_a=session_df_a[[attribute_str]],
+      data_set_b=session_df_b[[attribute_str]])
+    return(src_N_domain_num_enriched_attributes$estimate)
+  }
+
+  row_of_src <- sapply(2:20, compute_full_row_of_src)
+  session_pair_matrix[x,4:22] <- row_of_src
 }
