@@ -11,8 +11,15 @@
    ## Clean data - remove first row
    ##################################
    nsah_df <- nsah_df[-c(1),]
-   nsah_df$`mitochondrion inheritance` <- gsub("-0","0",nsah_df$`mitochondrion inheritance`)
-> View(nsah_df)
-> nsah_df$`mitochondrion inheritance` <- sapply(nsah_df$`mitochondrion inheritance`, as.numeric)
+
+   for(name in names(nsah_df)) {
+      if(name=="ORF") {
+         next
+      }
+      nsah_df[[name]]<- gsub("-0","0",nsah_df[[name]])
+
+      nsah_df[[name]]<- sapply(nsah_df[[name]], as.numeric)
+   }
+
    return(nsah_df)
  }
