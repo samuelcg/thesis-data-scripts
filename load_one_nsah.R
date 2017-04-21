@@ -1,7 +1,7 @@
  library(readr)
 
  load_one_nsah <- function(arg_time_stamp) {
-   str_path_to_file <- paste("/Volumes/~samuelcg/thesis/Kamada-Kawai/raw-data/", arg_time_stamp,
+   str_path_to_file <- paste("/Users/samuelcg/Downloads/thesis-raw-data/", arg_time_stamp,
    "/neighborhood_scores_annotation-highest.txt", sep="")
 
    nsah_df <- read_delim(str_path_to_file,
