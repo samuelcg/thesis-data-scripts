@@ -10,7 +10,7 @@ time_stamps <- c("safe-2017-02-27-13-00-39",
                  )
 
 list_of_nsah_dfs <- lapply(time_stamps, load_one_nsah)
-
+names(list_of_nsah_dfs) <- time_stamps
 ##################################
 ## Clean up.
 ##################################
