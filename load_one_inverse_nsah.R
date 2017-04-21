@@ -7,7 +7,7 @@ library(readr)
    nsah_t_df <- read_delim(str_path_to_file,
      "\t", escape_double = FALSE, trim_ws = TRUE, skip = 5)
    
-   nsah_t_df <- t(nsah_df)
+   nsah_t_df <- t(nsah_t_df)
    nsah_t_df <- as.data.frame(nsah_t_df)
    
    helper <- sapply(nsah_t_df, is.factor)
