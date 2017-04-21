@@ -10,7 +10,6 @@ names_for_one_df <- names(list_of_nsah_dfs[[session_pair_matrix[1,1]]])
 ##################################
 ## Add a column to the matrix to hold the results of the spearman's test
 ##################################
-num_src_tests_num_enriched_attributes <- 19
 
 src_matrix <- matrix(0, nrow=nrow(session_pair_matrix),ncol=length(names_for_one_df) - 1)
 
