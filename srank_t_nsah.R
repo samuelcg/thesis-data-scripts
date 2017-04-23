@@ -49,3 +49,18 @@ for (x in 1:nrow(t_nsah_session_pair_matrix)) {
   row_of_src <- sapply(cols_to_compute, compute_full_row_of_src)
   t_nsah_session_pair_matrix[x,3:ncol(t_nsah_session_pair_matrix)] <- row_of_src
 }
+
+##################################
+## Clean up
+##################################
+
+rm(
+  src_matrix,
+  col_names,
+  session_a,
+  session_b,
+  row_of_src,
+  session_df_a,
+  session_df_b,
+  x
+  )
