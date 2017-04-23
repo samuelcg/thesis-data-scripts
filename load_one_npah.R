@@ -2,7 +2,7 @@ library(readr)
 library(plyr)
 
 load_one_npah <- function(arg_time_stamp) {
-  str_path_to_file <- paste("/Users/samuelcg/Downloads/thesis-raw-data/", arg_time_stamp,
+  str_path_to_file <- paste("/Users/samuelcg/Desktop/thesis-raw-data/", arg_time_stamp,
   "/node_properties_annotation-highest.txt", sep="")
 
   npah_df <- read_delim(str_path_to_file,
