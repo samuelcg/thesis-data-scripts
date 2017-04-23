@@ -1,4 +1,4 @@
-source('load_all_npah.R')
+#source('load_all_npah.R')
 source('compute_src.R')
 
 ##################################
@@ -9,7 +9,7 @@ npah_session_pair_matrix <- t(combn(names(list_of_npah_dfs), 2))
 ##################################
 ## Add a column to the matrix to hold the results of the spearman's test
 ##################################
-num_src_tests_num_enriched_attributes <- 19
+num_src_tests_num_enriched_attributes <- 17
 
 src_matrix <- matrix(0, nrow=nrow(npah_session_pair_matrix),ncol=num_src_tests_num_enriched_attributes + 1)
 
@@ -17,7 +17,7 @@ npah_session_pair_matrix <- cbind(
   npah_session_pair_matrix,
   src_matrix)
 
-col_names <- 2:20
+col_names <- 2:(num_src_tests_num_enriched_attributes + 1)
 col_names <- sapply(col_names, paste, "_src_domain_num_enriched_attributes", sep="")
 col_names <- c(c(
   "SAFE_session_a",
@@ -54,8 +54,8 @@ for (x in 1:nrow(npah_session_pair_matrix)) {
     return(src_N_domain_num_enriched_attributes$estimate)
   }
 
-  row_of_src <- sapply(2:20, compute_full_row_of_src)
-  npah_session_pair_matrix[x,4:22] <- row_of_src
+  row_of_src <- sapply(2:(num_src_tests_num_enriched_attributes + 1), compute_full_row_of_src)
+  npah_session_pair_matrix[x,4:ncol(npah_session_pair_matrix)] <- row_of_src
 }
 
 ##################################
