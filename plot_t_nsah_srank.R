@@ -1,0 +1,1 @@
+ggplot(t_nsah_srank_summary_df, aes(x=mean)) + geom_histogram() + geom_vline(xintercept = 0.8470)
