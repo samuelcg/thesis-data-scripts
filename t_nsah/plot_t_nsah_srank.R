@@ -7,15 +7,24 @@ t_nsah_srank_plot <- t_nsah_srank_plot + geom_histogram()
 # axis labels
 t_nsah_srank_plot <- t_nsah_srank_plot + xlab(expression(paste("Average Spearman's rank correlation ", rho))) + ylab("Number of genes")
 # median line
-t_nsah_srank_plot <- t_nsah_srank_plot + geom_vline(xintercept = median_srank) 
+t_nsah_srank_plot <- t_nsah_srank_plot + annotate("segment",
+	x = median_srank, 
+	xend= median_srank,
+	y=0,
+	yend=940,
+	colour="red") 
 # remove grid
-t_nsah_srank_plot <- t_nsah_srank_plot + theme(panel.grid.major = element_blank(),
-	panel.grid.minor=element_blank())
+t_nsah_srank_plot <- t_nsah_srank_plot + theme(
+	axis.line=element_line(),
+	panel.grid.major = element_blank(),
+	panel.grid.minor=element_blank(),
+	panel.background=element_rect(fill="white"))
 # Line label
 t_nsah_srank_plot <- t_nsah_srank_plot + annotate("text", 
 	x=median_srank, 
-	y=1000, 
+	y=950, 
 	label=paste("Median~rho==",str_median_srank),
+	colour="red",
 	parse=TRUE)
 
 
