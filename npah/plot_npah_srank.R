@@ -3,7 +3,7 @@ str_median_srank <- as.character(median_srank)
 
 npah_srank_plot <- ggplot(npah_srank_summary_df, aes(x=mean)) 
 #histogram
-npah_srank_plot <- npah_srank_plot + geom_histogram() 
+npah_srank_plot <- npah_srank_plot + geom_histogram(fill="white", colour="blue") 
 # axis labels
 npah_srank_plot <- npah_srank_plot + xlab(expression(paste("Average Spearman's rank correlation ", rho))) + ylab("Node properties")
 # median line
