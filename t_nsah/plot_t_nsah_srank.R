@@ -3,7 +3,7 @@ str_median_srank <- as.character(median_srank)
 
 t_nsah_srank_plot <- ggplot(t_nsah_srank_summary_df, aes(x=mean)) 
 #histogram
-t_nsah_srank_plot <- t_nsah_srank_plot + geom_histogram() 
+t_nsah_srank_plot <- t_nsah_srank_plot + geom_histogram(fill="white", colour="cornflowerblue") 
 # axis labels
 t_nsah_srank_plot <- t_nsah_srank_plot + xlab(expression(paste("Average Spearman's rank correlation ", rho))) + ylab("Number of genes")
 # median line
@@ -28,6 +28,7 @@ t_nsah_srank_plot <- t_nsah_srank_plot + annotate("text",
 	parse=TRUE)
 
 
+t_nsah_srank_plot <- t_nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.01)) + scale_y_continuous(expand = c(0, 0), limit=c(0,1000))
 
 
 rm(median_srank,str_median_srank)
