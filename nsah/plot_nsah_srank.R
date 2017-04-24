@@ -1,7 +1,7 @@
-median_srank <- median(nsah_srank_summary_df$mean)
+median_srank <- median(nsah_srank_summary_df$min)
 str_median_srank <- as.character(median_srank)
 
-nsah_srank_plot <- ggplot(nsah_srank_summary_df, aes(x=mean)) 
+nsah_srank_plot <- ggplot(nsah_srank_summary_df, aes(x=min)) 
 #histogram
 nsah_srank_plot <- nsah_srank_plot + geom_histogram(fill="white", colour="cornflowerblue") 
 # axis labels
