@@ -1,5 +1,5 @@
 #source('load_all_npah.R')
-source('compute_src.R')
+source('../compute_src.R')
 
 ##################################
 ## Compute all possible unique pairs of SAFE sessions
@@ -53,7 +53,7 @@ for (x in 1:nrow(npah_session_pair_matrix)) {
       data_set_b=session_df_b[[attribute_str]])
     return(src_N_domain_num_enriched_attributes$estimate)
   }
-
+  cols_to_compute <- names(list_of_npah_dfs[[npah_session_pair_matrix[1,1]]])[-c(1,2,3,5)]
   row_of_src <- sapply(2:(num_src_tests_num_enriched_attributes + 1), compute_full_row_of_src)
   npah_session_pair_matrix[x,4:ncol(npah_session_pair_matrix)] <- row_of_src
 }
