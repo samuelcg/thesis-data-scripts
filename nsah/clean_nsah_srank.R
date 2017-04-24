@@ -23,7 +23,7 @@ for(x in 3:ncol(clean_nsah_srank)) {
 nsah_srank_summary <- cbind(cols_to_compute, nsah_srank_summary)
 colnames(nsah_srank_summary) <- c("go_label", "min","q1","median","mean","q3","max", "NA\'s")
 
-t_nsah_srank_summary_df <- as.data.frame(nsah_srank_summary)
+nsah_srank_summary_df <- as.data.frame(nsah_srank_summary)
 
 
 rm(clean_nsah_srank, nsah_srank_summary, contains_nas, summary_row, x, summary_length)
