@@ -1,5 +1,5 @@
 ## source('load_all_nsah.R')
-source('compute_src.R')
+source('../compute_src.R')
 
 ##################################
 ## Compute all possible unique pairs of SAFE sessions
