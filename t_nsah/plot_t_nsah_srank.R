@@ -1,7 +1,7 @@
-median_srank <- median(t_nsah_srank_summary_df$max)
+median_srank <- median(t_nsah_srank_summary_df$median)
 str_median_srank <- as.character(median_srank)
 
-t_nsah_srank_plot <- ggplot(t_nsah_srank_summary_df, aes(x=max)) 
+t_nsah_srank_plot <- ggplot(t_nsah_srank_summary_df, aes(x=median)) 
 #histogram
 t_nsah_srank_plot <- t_nsah_srank_plot + geom_histogram(fill="white", colour="cornflowerblue") 
 # axis labels
@@ -11,7 +11,7 @@ t_nsah_srank_plot <- t_nsah_srank_plot + annotate("segment",
 	x = median_srank, 
 	xend= median_srank,
 	y=0,
-	yend=3010,
+	yend=940,
 	colour="red") 
 # remove grid
 t_nsah_srank_plot <- t_nsah_srank_plot + theme(
@@ -21,14 +21,14 @@ t_nsah_srank_plot <- t_nsah_srank_plot + theme(
 	panel.background=element_rect(fill="white"))
 # Line label
 t_nsah_srank_plot <- t_nsah_srank_plot + annotate("text", 
-	x=median_srank - 0.02, 
-	y=3000, 
+	x=median_srank, 
+	y=950, 
 	label=paste("Median~rho==",str_median_srank),
 	colour="red",
 	parse=TRUE)
 
 
-t_nsah_srank_plot <- t_nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.05)) + scale_y_continuous(expand = c(0, 0), limit=c(0,4000))
+t_nsah_srank_plot <- t_nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.05)) + scale_y_continuous(expand = c(0, 0), limit=c(0,2000))
 
 
 rm(median_srank,str_median_srank)
