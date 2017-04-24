@@ -17,3 +17,8 @@ t_nsah_srank_plot <- t_nsah_srank_plot + annotate("text",
 	y=1000, 
 	label=paste("Median~rho==",str_median_srank),
 	parse=TRUE)
+
+
+
+
+rm(median_srank,str_median_srank)

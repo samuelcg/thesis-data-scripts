@@ -9,3 +9,4 @@ for(name in names(t_nsah_srank_summary_df)) {
 	t_nsah_srank_summary_df[[name]] <- as.numeric(t_nsah_srank_summary_df[[name]])
 
 }
+rm(cols_to_compute, names_for_one_df, t_nsah_session_pair_matrix, name)

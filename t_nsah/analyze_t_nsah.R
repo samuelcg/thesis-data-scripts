@@ -1,0 +1,7 @@
+print("Computing spearman rank correlation constants...")
+source('srank_t_nsah.R')
+print('cleaning srank data...')
+source('clean_t_nsah_srank.R')
+source('clean_t_nsah_srank_df.R')
+print('producing plots...')
+source('plot_t_nsah_srank.R')
