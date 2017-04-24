@@ -4,6 +4,8 @@ str_median_srank <- as.character(median_srank)
 t_nsah_srank_plot <- ggplot(t_nsah_srank_summary_df, aes(x=mean)) 
 #histogram
 t_nsah_srank_plot <- t_nsah_srank_plot + geom_histogram() 
+# axis labels
+t_nsah_srank_plot <- t_nsah_srank_plot + xlab(expression(paste("Average Spearman's rank correlation ", rho))) + ylab("Number of genes")
 # median line
 t_nsah_srank_plot <- t_nsah_srank_plot + geom_vline(xintercept = median_srank) 
 # remove grid
