@@ -23,4 +23,4 @@ t_nsah_srank_summary <- cbind(cols_to_compute, t_nsah_srank_summary)
 colnames(t_nsah_srank_summary) <- c("node_label", "min","q1","median","mean","q3","max", "NA\'s")
 t_nsah_srank_summary_df <- as.data.frame(t_nsah_srank_summary)
 
-rm(clean_t_nsah_srank, t_nsah_srank_summary)
+rm(clean_t_nsah_srank, t_nsah_srank_summary, contains_nas, summary_row, x, summary_length)
