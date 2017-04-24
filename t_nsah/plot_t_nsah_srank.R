@@ -28,7 +28,7 @@ t_nsah_srank_plot <- t_nsah_srank_plot + annotate("text",
 	parse=TRUE)
 
 
-t_nsah_srank_plot <- t_nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.01)) + scale_y_continuous(expand = c(0, 0), limit=c(0,1000))
+t_nsah_srank_plot <- t_nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.05)) + scale_y_continuous(expand = c(0, 0), limit=c(0,1000))
 
 
 rm(median_srank,str_median_srank)
