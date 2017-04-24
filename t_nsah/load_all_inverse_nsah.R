@@ -21,7 +21,7 @@ source('load_one_inverse_nsah.R')
 # "safe-2017-04-21-03-59-54",
 # "safe-2017-04-21-04-10-37")
 ## randomized fd data set
-time_stamps < c("safe-2017-04-24-02-24-25",	
+time_stamps <- c("safe-2017-04-24-02-24-25",	
 "safe-2017-04-24-02-38-33",	
 "safe-2017-04-24-02-44-12",	
 "safe-2017-04-24-02-49-57",	
