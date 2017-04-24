@@ -1,5 +1,5 @@
 ## source('load_all_nsah.R')
-source('compute_src.R')
+source('../compute_src.R')
 
 ##################################
 ## Compute all possible unique pairs of SAFE sessions
@@ -49,3 +49,14 @@ for (x in 1:nrow(nsah_session_pair_matrix)) {
   row_of_src <- sapply(cols_to_compute, compute_full_row_of_src)
   nsah_session_pair_matrix[x,3:ncol(nsah_session_pair_matrix)] <- row_of_src
 }
+
+rm(
+  src_matrix,
+  col_names,
+  session_a,
+  session_b,
+  row_of_src,
+  session_df_a,
+  session_df_b,
+  x
+  )
