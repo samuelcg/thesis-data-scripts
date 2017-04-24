@@ -1,7 +1,7 @@
-median_srank <- median(nsah_srank_summary_df$max)
+median_srank <- median(nsah_srank_summary_df$median)
 str_median_srank <- as.character(median_srank)
 
-nsah_srank_plot <- ggplot(nsah_srank_summary_df, aes(x=max)) 
+nsah_srank_plot <- ggplot(nsah_srank_summary_df, aes(x=median)) 
 #histogram
 nsah_srank_plot <- nsah_srank_plot + geom_histogram(fill="white", colour="cornflowerblue") 
 # axis labels
@@ -23,7 +23,7 @@ nsah_srank_plot <- nsah_srank_plot + theme(
 
 # Line label
 nsah_srank_plot <- nsah_srank_plot + annotate("text", 
-	x=median_srank, 
+	x=median_srank -0.02, 
 	y=950, 
 	label=paste("Median~rho==",str_median_srank),
 	colour="red",
