@@ -30,6 +30,6 @@ nsah_srank_plot <- nsah_srank_plot + annotate("text",
 	parse=TRUE)
 
 
-nsah_srank_plot <- nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.05)) + scale_y_continuous(expand = c(0, 0), limit=c(0,2000))
+nsah_srank_plot <- nsah_srank_plot + scale_x_continuous(expand = c(0, 0), limit = c(0,1.05)) + scale_y_continuous(expand = c(0, 0), limit=c(0,4000))
 
 rm(median_srank,str_median_srank)

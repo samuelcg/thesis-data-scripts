@@ -8,7 +8,7 @@ for(name in names(nsah_srank_summary_df)){
 	mytable <- table(nsah_srank_summary_df$go_label, nsah_srank_summary_df[[name]])
 	my_freq_table<-margin.table(mytable, 2)
 
-	layout_str <- "fdcl"
-	file_name <- paste(layout_str,"nsah-genes",name,"srank.csv",sep="-")
+	layout_str <- "c"
+	file_name <- paste(layout_str,"nsah-go-terms",name,"srank.csv",sep="-")
 	write.csv(my_freq_table,file=file_name,row.names=TRUE)
 }
